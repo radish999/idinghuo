@@ -4,14 +4,15 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "files": [
-    "dist",
-    "tailwind.css"
+    "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts && tailwindcss -i ./src/styles/tailwind.css -o ./dist/tailwind.css",
-    "dev": "concurrently \"tsup src/index.ts --format cjs,esm --dts --watch\" \"tailwindcss -i ./src/styles/tailwind.css -o ./dist/tailwind.css --watch\"",
-    "lint": "eslint src --ext .ts,.tsx"
+    "build:ts": "tsup",
+    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css",
+    "build": "pnpm build:ts && pnpm build:css",
+    "dev": "concurrently \"tsup --watch\" \"tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css --watch\""
   },
   "dependencies": {
     "@idinghuo/hooks": "workspace:*",
@@ -19,14 +20,12 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0",
     "@mui/icons-material": "^5.14.0",
-    "ethers": "^5.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "tailwind-merge": "^2.0.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "tailwindcss": "^3.0.0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

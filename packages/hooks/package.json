@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
+    "@types/node": "^18.0.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.5",
     "react": "^18.2.0"
@@ -24,11 +25,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "keywords": [
-    "web3",
-    "ethereum",
-    "hooks",
-    "react"
-  ]
+  }
 }

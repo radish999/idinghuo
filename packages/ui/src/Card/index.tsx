@@ -1,39 +1,22 @@
-
-// packages/ui/src/Card/index.tsx
 import React from 'react';
-import { Card as MuiCard, CardContent, CardHeader, CardProps as MuiCardProps } from '@mui/material';
+import { Card as MuiCard, CardContent, CardHeader } from '@mui/material';
 import { cn } from '../utils';
 
-interface CardProps extends MuiCardProps {
+interface CardProps {
   title?: React.ReactNode;
-  subtitle?: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
-  contentClassName?: string;
 }
 
-export const Card = ({
+export const Card: React.FC<CardProps> = ({
   title,
-  subtitle,
   children,
-  className,
-  contentClassName,
-  ...props
-}: CardProps) => {
+  className
+}) => {
   return (
-    <MuiCard
-      className={cn('rounded-xl shadow-lg overflow-hidden', className)}
-      {...props}
-    >
-      {(title || subtitle) && (
-        <CardHeader
-          title={title}
-          subheader={subtitle}
-          className="bg-gray-50"
-        />
-      )}
-      <CardContent className={cn('p-6', contentClassName)}>
-        {children}
-      </CardContent>
+    <MuiCard className={cn('rounded-lg shadow', className)}>
+      {title && <CardHeader title={title} />}
+      <CardContent>{children}</CardContent>
     </MuiCard>
   );
 };

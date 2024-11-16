@@ -21,8 +21,11 @@ export const useWallet = () => {
 
   const updateWalletState = useCallback(async (address: string) => {
     try {
-      if (!window.ethereum) throw new Error('No ethereum wallet found');
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      if (typeof window === 'undefined' || !window.ethereum) {
+        throw new Error('No ethereum wallet found');
+      }
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum as any);
       const balance = await provider.getBalance(address);
       const network = await provider.getNetwork();
       
@@ -40,8 +43,11 @@ export const useWallet = () => {
 
   const connect = useCallback(async () => {
     try {
-      if (!window.ethereum) throw new Error('No ethereum wallet found');
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      if (typeof window === 'undefined' || !window.ethereum) {
+        throw new Error('No ethereum wallet found');
+      }
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum as any);
       const accounts = await provider.send('eth_requestAccounts', []);
       if (accounts[0]) await updateWalletState(accounts[0]);
     } catch (error) {
@@ -60,7 +66,7 @@ export const useWallet = () => {
   }, []);
 
   useEffect(() => {
-    if (window.ethereum) {
+    if (typeof window !== 'undefined' && window.ethereum) {
       window.ethereum.on('accountsChanged', (accounts: string[]) => {
         if (accounts[0]) updateWalletState(accounts[0]);
         else disconnect();
@@ -72,8 +78,9 @@ export const useWallet = () => {
     }
 
     return () => {
-      if (window.ethereum) {
-        window.ethereum.removeAllListeners();
+      if (typeof window !== 'undefined' && window.ethereum) {
+        window.ethereum.removeAllListeners('accountsChanged');
+        window.ethereum.removeAllListeners('chainChanged');
       }
     };
   }, [updateWalletState, disconnect]);

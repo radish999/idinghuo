@@ -1,5 +1,5 @@
+import './styles/tailwind.css';
 
-// packages/ui/src/index.ts
-export * from './WalletButton';
-export * from './Card';
+export { WalletButton } from './WalletButton';
+export { Card } from './Card';
 export { cn } from './utils';

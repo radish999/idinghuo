@@ -1,0 +1,5 @@
+packages:
+  # 所有 packages 目录下的包
+  - 'packages/*'
+  # 如果你有示例项目，也可以加入
+  # - 'example'
