@@ -1,5 +1,11 @@
 # @idinghuo/hooks
 
+## 1.0.0
+
+### Major Changes
+
+- 更改引用关系
+
 ## 0.1.1
 
 ### Patch Changes
