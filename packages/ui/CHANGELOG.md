@@ -1,5 +1,16 @@
 # @idinghuo/ui
 
+## 1.1.0
+
+### Minor Changes
+
+- hooks UI 一起发布
+
+### Patch Changes
+
+- Updated dependencies
+  - idinghuo-hooks@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

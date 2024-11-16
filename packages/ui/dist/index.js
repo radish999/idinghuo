@@ -1,3 +1,87 @@
-"use strict";var N=Object.create;var d=Object.defineProperty;var B=Object.getOwnPropertyDescriptor;var w=Object.getOwnPropertyNames;var T=Object.getPrototypeOf,W=Object.prototype.hasOwnProperty;var v=(e,r)=>{for(var t in r)d(e,t,{get:r[t],enumerable:!0})},c=(e,r,t,o)=>{if(r&&typeof r=="object"||typeof r=="function")for(let n of w(r))!W.call(e,n)&&n!==t&&d(e,n,{get:()=>r[n],enumerable:!(o=B(r,n))||o.enumerable});return e};var m=(e,r,t)=>(t=e!=null?N(T(e)):{},c(r||!e||!e.__esModule?d(t,"default",{value:e,enumerable:!0}):t,e)),P=e=>c(d({},"__esModule",{value:!0}),e);var M={};v(M,{Card:()=>x,WalletButton:()=>C,cn:()=>a});module.exports=P(M);function p(e,{insertAt:r}={}){if(!e||typeof document=="undefined")return;let t=document.head||document.getElementsByTagName("head")[0],o=document.createElement("style");o.type="text/css",r==="top"&&t.firstChild?t.insertBefore(o,t.firstChild):t.appendChild(o),o.styleSheet?o.styleSheet.cssText=e:o.appendChild(document.createTextNode(e))}p(`@tailwind base;@tailwind components;@tailwind utilities;@layer components{.btn-primary{@apply px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors;}.btn-secondary{@apply px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors;}.input-primary{@apply px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent;}}
-`);var i=m(require("react")),y=require("@mui/material"),g=require("idinghuo-hooks");var u=require("clsx"),f=require("tailwind-merge");function a(...e){return(0,f.twMerge)((0,u.clsx)(e))}var C=({className:e,connectText:r="\u8FDE\u63A5\u94B1\u5305",disconnectText:t="\u65AD\u5F00\u8FDE\u63A5"})=>{let{isConnected:o,address:n,connect:h,disconnect:b}=(0,g.useWallet)();return i.default.createElement(y.Button,{onClick:o?b:h,className:a("px-4 py-2 rounded-lg font-medium",o?"bg-red-500 hover:bg-red-600":"bg-blue-500 hover:bg-blue-600",e)},o?i.default.createElement(i.default.Fragment,null,t,n&&i.default.createElement("span",{className:"ml-2 text-sm opacity-80"},"(",n.slice(0,6),"...",n.slice(-4),")")):r)};var l=m(require("react")),s=require("@mui/material");var x=({title:e,children:r,className:t})=>l.default.createElement(s.Card,{className:a("rounded-lg shadow",t)},e&&l.default.createElement(s.CardHeader,{title:e}),l.default.createElement(s.CardContent,null,r));0&&(module.exports={Card,WalletButton,cn});
-//# sourceMappingURL=index.js.map
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  Card: () => Card,
+  WalletButton: () => WalletButton,
+  cn: () => cn
+});
+module.exports = __toCommonJS(src_exports);
+
+// src/WalletButton/index.tsx
+var import_react = __toESM(require("react"));
+var import_material = require("@mui/material");
+var import_idinghuo_hooks = require("idinghuo-hooks");
+
+// src/utils.ts
+var import_clsx = require("clsx");
+var import_tailwind_merge = require("tailwind-merge");
+function cn(...inputs) {
+  return (0, import_tailwind_merge.twMerge)((0, import_clsx.clsx)(inputs));
+}
+
+// src/WalletButton/index.tsx
+var WalletButton = ({
+  className,
+  connectText = "\u8FDE\u63A5\u94B1\u5305",
+  disconnectText = "\u65AD\u5F00\u8FDE\u63A5"
+}) => {
+  const { isConnected, address, connect, disconnect } = (0, import_idinghuo_hooks.useWallet)();
+  return /* @__PURE__ */ import_react.default.createElement(
+    import_material.Button,
+    {
+      onClick: isConnected ? disconnect : connect,
+      className: cn(
+        "px-4 py-2 rounded-lg font-medium",
+        isConnected ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600",
+        className
+      )
+    },
+    isConnected ? /* @__PURE__ */ import_react.default.createElement(import_react.default.Fragment, null, disconnectText, address && /* @__PURE__ */ import_react.default.createElement("span", { className: "ml-2 text-sm opacity-80" }, "(", address.slice(0, 6), "...", address.slice(-4), ")")) : connectText
+  );
+};
+
+// src/Card/index.tsx
+var import_react2 = __toESM(require("react"));
+var import_material2 = require("@mui/material");
+var Card = ({
+  title,
+  children,
+  className
+}) => {
+  return /* @__PURE__ */ import_react2.default.createElement(import_material2.Card, { className: cn("rounded-lg shadow", className) }, title && /* @__PURE__ */ import_react2.default.createElement(import_material2.CardHeader, { title }), /* @__PURE__ */ import_react2.default.createElement(import_material2.CardContent, null, children));
+};
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  Card,
+  WalletButton,
+  cn
+});

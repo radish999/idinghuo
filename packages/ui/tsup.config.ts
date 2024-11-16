@@ -5,9 +5,11 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   dts: true,
   clean: true,
-  external: ['react'],
-  injectStyle: true,
-  splitting: false,
-  sourcemap: true,
-  minify: true,
+  external: [
+    'react',
+    '@emotion/react',
+    '@emotion/styled',
+    '@mui/material',
+    '@mui/icons-material'
+  ]
 });

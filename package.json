@@ -6,7 +6,8 @@
     "dev": "pnpm -r dev",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "prerelease": "pnpm build",
+    "release": "changeset publish --registry https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0"
