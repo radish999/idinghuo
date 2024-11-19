@@ -1,0 +1,11 @@
+{
+  "packageName": "idinghuo/types",
+  "version": "1.0.0",
+  "outputDir": "./src/types",
+  "apiEndpoints": [
+    {
+      "url": "http://jsonplaceholder.typicode.com/posts/2",
+      "typeName": "getUser"
+    }
+  ]
+}

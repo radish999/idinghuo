@@ -39,7 +39,7 @@ module.exports = __toCommonJS(src_exports);
 // src/WalletButton/index.tsx
 var import_react = __toESM(require("react"));
 var import_material = require("@mui/material");
-var import_idinghuo_hooks = require("idinghuo-hooks");
+var import_hooks = require("@idinghuo/hooks");
 
 // src/utils.ts
 var import_clsx = require("clsx");
@@ -54,7 +54,7 @@ var WalletButton = ({
   connectText = "\u8FDE\u63A5\u94B1\u5305",
   disconnectText = "\u65AD\u5F00\u8FDE\u63A5"
 }) => {
-  const { isConnected, address, connect, disconnect } = (0, import_idinghuo_hooks.useWallet)();
+  const { isConnected, address, connect, disconnect } = (0, import_hooks.useWallet)();
   return /* @__PURE__ */ import_react.default.createElement(
     import_material.Button,
     {

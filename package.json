@@ -3,11 +3,10 @@
   "private": true,
   "scripts": {
     "build": "pnpm -r build",
-    "dev": "pnpm -r dev",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
     "prerelease": "pnpm build",
-    "release": "changeset publish --registry https://registry.npmjs.org/"
+    "release": "pnpm release:hooks && pnpm release:ui",
+    "release:hooks": "changeset publish --no-git-checks --filter @idinghuo/hooks --registry https://registry.npmjs.org/",
+    "release:ui": "changeset publish --no-git-checks --filter @idinghuo/ui --registry https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0"

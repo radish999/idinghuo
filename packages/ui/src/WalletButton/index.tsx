@@ -1,7 +1,7 @@
 // packages/ui/src/WalletButton/index.tsx
 import React from 'react';
 import { Button } from '@mui/material';
-import { useWallet } from 'idinghuo-hooks';
+import { useWallet } from '@idinghuo/hooks';
 import { cn } from '../utils';
 
 interface WalletButtonProps {

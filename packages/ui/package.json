@@ -1,6 +1,6 @@
 {
-  "name": "idinghuo-ui",
-  "version": "1.1.0",
+  "name": "@idinghuo/ui",
+  "version": "2.3.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -12,10 +12,13 @@
     "build:ts": "tsup",
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css",
     "build": "pnpm build:ts && pnpm build:css",
-    "dev": "concurrently \"tsup --watch\" \"tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css --watch\""
+    "dev": "concurrently \"tsup --watch\" \"tailwindcss -i ./src/styles/tailwind.css -o ./dist/index.css --watch\"",
+    "release:hooks": "pnpm --filter @idinghuo/hooks exec npm publish --access public --registry https://registry.npmjs.org/",
+    "release:ui": "pnpm --filter @idinghuo/ui exec npm publish --access public --registry https://registry.npmjs.org/",
+    "release": "pnpm release:hooks && pnpm release:ui"
   },
   "dependencies": {
-    "idinghuo-hooks": "workspace:*",
+    "@idinghuo/hooks": "workspace:*",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0",

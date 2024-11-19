@@ -1,7 +1,7 @@
 // src/WalletButton/index.tsx
 import React from "react";
 import { Button } from "@mui/material";
-import { useWallet } from "idinghuo-hooks";
+import { useWallet } from "@idinghuo/hooks";
 
 // src/utils.ts
 import { clsx } from "clsx";
